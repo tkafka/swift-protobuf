@@ -38,27 +38,27 @@ let package = Package(
     .target(
         name: "SwiftProtobuf",
         exclude: ["CMakeLists.txt"],
-				swiftSettings: [
-					/// giving you a nice red compile error in Xcode on the spot if you try to use some unsafe API
-					.unsafeFlags(["-Xfrontend", "-application-extension"])
-				],
-				linkerSettings: [
-					/// tells the linker 'this is an extension safe package' so you won't get warnings if you link the package to an extension target or another framework that is extension safe
-					.unsafeFlags(["-Xlinker", "-application_extension"])
-				]
-		),
+        swiftSettings: [
+            /// giving you a nice red compile error in Xcode on the spot if you try to use some unsafe API
+            .unsafeFlags(["-Xfrontend", "-application-extension"])
+        ],
+        linkerSettings: [
+            /// tells the linker 'this is an extension safe package' so you won't get warnings if you link the package to an extension target or another framework that is extension safe
+            .unsafeFlags(["-Xlinker", "-application_extension"])
+        ]
+        ),
     .target(
         name: "SwiftProtobufPluginLibrary",
         dependencies: ["SwiftProtobuf"],
         exclude: ["CMakeLists.txt"],
-				swiftSettings: [
-					/// giving you a nice red compile error in Xcode on the spot if you try to use some unsafe API
-					.unsafeFlags(["-Xfrontend", "-application-extension"])
-				],
-				linkerSettings: [
-					/// tells the linker 'this is an extension safe package' so you won't get warnings if you link the package to an extension target or another framework that is extension safe
-					.unsafeFlags(["-Xlinker", "-application_extension"])
-				]
+        swiftSettings: [
+            /// giving you a nice red compile error in Xcode on the spot if you try to use some unsafe API
+            .unsafeFlags(["-Xfrontend", "-application-extension"])
+        ],
+        linkerSettings: [
+            /// tells the linker 'this is an extension safe package' so you won't get warnings if you link the package to an extension target or another framework that is extension safe
+            .unsafeFlags(["-Xlinker", "-application_extension"])
+        ]
     ),
     .target(
         name: "SwiftProtobufTestHelpers",
